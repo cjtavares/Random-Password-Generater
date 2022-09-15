@@ -9,6 +9,7 @@ var symbols = "\"~`!@#$%^&*()-_+={}|[]:;'<>?,./\\\'";
 function writePassword() {
   var passwordLegth = prompt("Password Length (8-128)");
 
+// To insure the password is between 8-128 charaters
   if (passwordLegth < 8 || passwordLegth > 128 || passwordLegth === NaN ) {
    passwordLegth = confirm("Password must be a minimum of 8 and a max of 128 characters.");
    if (passwordLegth == true || passwordLegth == false){
@@ -17,11 +18,13 @@ function writePassword() {
    }
    console.log(typeof passwordLegth);
   }
+  // To record what character types the user wants to use in their password 
   var confirmLowercase = confirm("Would you like to use lowercaseletters?");
   var confirmUppercase = confirm("Would you like to use uppercase letters?");
   var confirmSymbols = confirm("Would you like to use special characters?");
   var confirmNumbers = confirm("Would you like to use numbers?");
 
+  // creating a string of wanted characters 
   var lowercaseConfirm = "" ;
   if (confirmLowercase == true){
   var lowercaseConfirm = lowercaseConfirm + lowercase;
