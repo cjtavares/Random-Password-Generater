@@ -8,10 +8,14 @@ var symbols = "\"~`!@#$%^&*()-_+={}|[]:;'<>?,./\\\'";
 // Write password to the #password input
 function writePassword() {
   var passwordLegth = prompt("Password Length (8-128)");
-  var passwordLegth = parseFloat(passwordLegth);
 
-  if (passwordLegth < 8 || passwordLegth > 128 || passwordLegth == ("") ) {
-   passwordLegth = prompt("Password must be a minimum of 8 and a max of 128 characters.");
+  if (passwordLegth < 8 || passwordLegth > 128 || passwordLegth === NaN ) {
+   passwordLegth = confirm("Password must be a minimum of 8 and a max of 128 characters.");
+   if (passwordLegth == true || passwordLegth == false){
+    writePassword();
+    return;
+   }
+   console.log(typeof passwordLegth);
   }
   var confirmLowercase = confirm("Would you like to use lowercaseletters?");
   var confirmUppercase = confirm("Would you like to use uppercase letters?");
@@ -46,14 +50,6 @@ function writePassword() {
   console.log(confirmSymbols);
   console.log(confirmNumbers);
   console.log(passwordCharacters);
-
-//   var generatePassword = function (passwordLegth) {
-//     var result = ""
-//   for (var i = 0; i < passwordLegth; i++){
-//      result + passwordCharacters.charAt(Math.floor(Math.random() * passwordLegth));
-//    }
-//    return result;
-// } 
 
 function generatePassword() {
   var result = "";
